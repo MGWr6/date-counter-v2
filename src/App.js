@@ -22,7 +22,7 @@ function Counter() {
     setDateCount(0);
   }
 
-  function substractCount() {
+  function subtractCount() {
     setDateCount((c) => c - step);
   }
 
@@ -46,7 +46,7 @@ function Counter() {
 
       <div>
         <div className="step-counter" value={dateCount}>
-          <button onClick={substractCount}>-</button>
+          <button onClick={subtractCount}>-</button>
           <input
             type="text"
             value={dateCount}
