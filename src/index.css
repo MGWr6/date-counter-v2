@@ -46,3 +46,42 @@ body {
 .step-counter p {
   font-size: 24px;
 }
+
+.step-counter input[type="text"] {
+  width: 75%;
+  height: 40px;
+  font-size: 24px;
+  border-radius: 7px;
+  text-align: center;
+}
+
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider {
+  width: 75%;
+  height: 20px;
+  cursor: pointer;
+}
+
+.slider-wrapper p {
+  font-size: 24px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-container button {
+  cursor: pointer;
+  height: 40px;
+  width: 80px;
+  font-size: 18px;
+  border-radius: 7px;
+  border: black solid 1px;
+}

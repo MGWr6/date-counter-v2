@@ -10,19 +10,16 @@ export default function App() {
 }
 
 function Counter() {
-  const [step, setStep] = useState(0);
-  const [dateCount, setDateCount] = useState(step);
+  const [step, setStep] = useState(1);
+  const [dateCount, setDateCount] = useState(0);
 
   const today = new Date();
   const newDate = new Date();
   newDate.setDate(today.getDate() + dateCount);
 
-  function subtractStep() {
-    if (step > 1) setStep((s) => s - 1);
-  }
-
-  function addStep() {
-    setStep((s) => s + 1);
+  function handleReset() {
+    setStep(1);
+    setDateCount(0);
   }
 
   function substractCount() {
@@ -35,19 +32,26 @@ function Counter() {
 
   return (
     <div className="counter">
-      <div>
-        <input type="range" min="0" max="10"></input>
-        <div className="step-counter">
-          <button onClick={subtractStep}>-</button>
-          <p>Step: {step}</p>
-          <button onClick={addStep}>+</button>
-        </div>
+      <div className="slider-wrapper">
+        <input
+          className="slider"
+          type="range"
+          min="0"
+          max="10"
+          value={step}
+          onChange={(e) => setStep(Number(e.target.value))}
+        ></input>
+        <p>{step}</p>
       </div>
 
       <div>
-        <div className="step-counter">
+        <div className="step-counter" value={dateCount}>
           <button onClick={substractCount}>-</button>
-          <p>Count: {dateCount}</p>
+          <input
+            type="text"
+            value={dateCount}
+            onChange={(e) => setDateCount(Number(e.target.value))}
+          ></input>
           <button onClick={addDateCount}>+</button>
         </div>
       </div>
@@ -68,6 +72,16 @@ function Counter() {
           <span>{newDate.toDateString()}</span>
         </p>
       </div>
+      {dateCount !== 0 || step !== 1 ? (
+        <div className="button-container">
+          <button onClick={handleReset}>Reset</button>
+        </div>
+      ) : null}
+      {/* {(dateCount !== 0 || step !== 1) && (
+        <div className="button-container">
+          <button onClick={handleReset}>Reset</button>
+        </div>
+      )} */}
     </div>
   );
 }
